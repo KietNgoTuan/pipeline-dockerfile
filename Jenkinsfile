@@ -6,6 +6,7 @@ pipeline {
 			    dockerfile {
 				    dir 'dockerfileDir'
 				    filename 'test.Dockerfile'
+				    additionalBuildArgs '--tag test:develop'
 			    }
         }
             steps{
