@@ -6,15 +6,12 @@ pipeline {
 			    dockerfile {
 				    dir 'dockerfileDir'
 				    filename 'test.Dockerfile'
-				    additionalBuildArgs '--tag test:develop'
 			    }
         }
             steps{
-                //sh 'dotnet --version'
-	        // run with node image
-		//sh 'node --version'   
-		// run with ubuntu
-		sh 'cat /etc/lsb-release'   
+               docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
+		       def app = docker.build("kiettheo98/pipline-docker-test", '.').push("${env.BRANCH_NAME}")
+	       }
             }
         }
     }
