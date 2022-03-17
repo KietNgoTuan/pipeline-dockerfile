@@ -14,7 +14,7 @@ pipeline {
         }
             steps{
 		script {
-			docker.withRegistry('https://index.docker.io/v2/', '${DOCKER_HUB_CRED}') {
+			docker.withRegistry('https://index.docker.io/v2/', '${env.DOCKER_HUB_CRED}') {
 		       		def app = docker.build("kiettheo98/pipline-docker-test", '.').push("${env.BRANCH_NAME}")
 	       		}
 		}
