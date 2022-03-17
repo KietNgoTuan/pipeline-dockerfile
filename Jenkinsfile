@@ -14,7 +14,7 @@ pipeline {
         }
             steps{
 		script {
-			       docker.withRegistry("https://index.docker.io/v2/", "${params.myCredentials}") {
+			       docker.withRegistry("https://hub.docker.com", "${params.myCredentials}") {
 		       		def app = docker.build("kiettheo98/pipline-docker-test", '.').push("${env.BRANCH_NAME}")
 			       }
 		}
