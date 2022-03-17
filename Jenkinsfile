@@ -11,7 +11,7 @@ pipeline {
 				    dir 'dockerfileDir'
 				    filename 'test.Dockerfile'
 				    registryUrl 'https://index.docker.io/v2/'
-				    registryCredentialsId ${env.DOCKER_HUB_CRED}
+				    registryCredentialsId '${env.DOCKER_HUB_CRED}'
 			    }
         }
             steps{
