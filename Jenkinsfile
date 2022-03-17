@@ -1,5 +1,9 @@
 pipeline {
 	  agent none
+	environment { 
+                DOCKER_HUB_CRED = credentials('dockerhub') 
+
+        }
     stages {        
         stage('Build'){   
 		    agent {
@@ -7,10 +11,6 @@ pipeline {
 				    dir 'dockerfileDir'
 				    filename 'test.Dockerfile'
 			    }
-        }
-	environment { 
-                DOCKER_HUB_CRED = credentials('dockerhub') 
-
         }
             steps{
 		script {
