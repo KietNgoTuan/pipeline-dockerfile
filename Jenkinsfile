@@ -3,7 +3,9 @@ pipeline {
     stages {        
         stage('Build'){   
 		    agent {
-          dockerfile true
+			    dockerfile {
+				    dir 'dockerfileDir'
+			    }
         }
             steps{
                 sh 'dotnet --version'
